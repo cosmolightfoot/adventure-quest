@@ -1,5 +1,4 @@
 const formNode = document.getElementById('user-input');
-
 formNode.addEventListener('submit', function(event) {
     event.preventDefault();
 
