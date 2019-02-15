@@ -3,17 +3,30 @@ formNode.addEventListener('submit', function(event) {
     event.preventDefault();
 
     const formData = new FormData(formNode);
-
+    const userPartner = formData.get('partner');
+    let userCompleted = {};
+    if(userPartner === 'tina') {
+        userCompleted = {
+            sleepover: false
+        };
+    }
+    else if(userPartner === 'gene') {
+        userCompleted = {
+            arts: false
+        };
+    }
+    else if(userPartner === 'louise') {
+        userCompleted = {
+            wonder: false
+        };
+    }
+    
     const user = {
         name: formData.get('name'),
-        partner: formData.get('partner'),
+        partner: userPartner,
         bp: 0,
         allowance: 5,
-        completed: {
-            wonder: false,
-            sleepover: false,
-            arts: false
-        }
+        completed: userCompleted
     };
 
     const json = JSON.stringify(user);
